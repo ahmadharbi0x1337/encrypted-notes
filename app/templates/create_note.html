@@ -1,0 +1,31 @@
+{% extends "layout.html" %} {% block title %} Create Note {% endblock %} {%
+block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">Create New Note</h2>
+  <form method="POST" action="{{url_for('notes.create_note')}}">
+    <div class="mb-3">
+      <label for="title" class="form-lable">Title</label>
+      <input
+        type="text"
+        name="title"
+        required
+        class="form-control"
+        id="title"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="content" class="form-lable">Content</label>
+      <textarea
+        type="text"
+        name="content"
+        required
+        rows="5"
+        class="form-control"
+        id="content"
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-4">Save Note</button>
+    <a href="{{url_for('notes.dashboard')}}" class="mt-4">Cancel</a>
+  </form>
+</div>
+{% endblock %}
