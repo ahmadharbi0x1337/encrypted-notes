@@ -1,3 +1,129 @@
+/* PRESETS */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body{
     font-family: 'Ubuntu Sans Mono', sans-serif;
+    background-color: #fff;
+    color: #212529;
+}
+/* Notes Container */
+.notes-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    padding: 10px;
+}
+/* Card */
+.note-card{
+    width: 300px;
+    height: 250px;
+    background-color: azure;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+/* Title */
+.note-card .note-tile{
+    font-weight: bold;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* Content */
+.note-card .note-content{
+    margin-top: 60px;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: 6;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    line-height: 1.2em;
+    max-height: 7.2em;
+}
+/* TimeStamp */
+.note-card .note-timestamp{
+    font-size: 0.8rem;
+    color: #6c757d;
+    text-align: right;
+    margin-top: 12px;
+}
+
+
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+body.dark-mode .note-card {
+  background-color: #1e1e1e;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  color: #f1f1f1;
+}
+body.dark-mode .alert {
+  background-color: #333;
+  color: #ddd;
+}
+body.dark-mode button#darkModeToggle {
+  background-color: #444;
+  color: #eee;
+  border: none;
+  cursor: pointer;
+}
+/* Style toggle button */
+#darkModeToggle {
+  font-size: 1.2rem;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#darkModeToggle:hover {
+  background-color: #ddd;
+}
+
+
+
+/* Arabic Styles */
+body.rtl {
+  font-family: "Cairo", sans-serif; 
+  text-align: right;
+}
+
+body.rtl .card {
+  direction: rtl;
+}
+
+
+
+
+/* Center navbar items horizontally */
+.navbar-nav {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column;
+  }
+}
+
+/* Smooth transition for better RTL/LTR flipping */
+html[dir="rtl"] .navbar-nav {
+  direction: rtl;
 }
