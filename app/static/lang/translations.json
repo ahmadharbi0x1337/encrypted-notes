@@ -1,0 +1,47 @@
+{
+  "en": {
+    "notes_header": "My E_Notes",
+    "auth_status": "🔐 You Are Logged In As <strong>%username%</strong>",
+    "create_note": "➕ Create New Note",
+    "no_notes": "You Don't Have Any Notes Yet. Click \"Create New Note\" To Start!",
+    "create_new_note": "Create New Note",
+    "title": "Title",
+    "content": "Content",
+    "save_note": "Save Note",
+    "cancel": "Cancel",
+    "edit_note": "Edit Note",
+    "save_changes": "Save Changes",
+    "login": "Login",
+    "username": "Username",
+    "password": "Password",
+    "register": "Register",
+    "already_account": "Already Have An Account?",
+    "delete": "Delete",
+    "edit": "Edit",
+    "notes": "🔐 Notes",
+    "logout": "Logout"
+  },
+  "ar": {
+    "notes_header": "ملاحظاتي الإلكترونية",
+    "auth_status": "🔐  <strong>%username%</strong> أنت مسجل الدخول باسم",
+    "create_note": "➕ إنشاء ملاحظة جديدة",
+    "no_notes": "ليس لديك أي ملاحظات حتى الآن. اضغط على \"إنشاء ملاحظة جديدة\" للبدء!",
+    "create_new_note": "إنشاء ملاحظة جديدة",
+    "title": "العنوان",
+    "content": "المحتوى",
+    "save_note": "حفظ الملاحظة",
+    "cancel": "إلغاء",
+    "edit_note": "تعديل الملاحظة",
+    "save_changes": "حفظ التغييرات",
+    "login": "تسجيل الدخول",
+    "username": "اسم المستخدم",
+    "password": "كلمة المرور",
+    "register": "تسجيل",
+    "already_account": "هل لديك حساب بالفعل؟",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "notes": "🔐 ملاحظات",
+    "logout": "خروج"
+  }
+}
+
