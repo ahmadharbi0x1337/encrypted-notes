@@ -1,0 +1,43 @@
+{% extends "layout.html" %} {% block title %} My Notes {% endblock%} {% block
+content %}
+<div class="container mt-4">
+  <h2>My E_Notes</h2>
+  <div class="alert alert-info">
+    🔐 You Are Logged In As
+    <strong>{{current_user.username}}</strong>
+  </div>
+  <a href="{{url_for('notes.create_note')}}" class="btn btn-sucess mb-4"
+    >➕ Create New Note</a
+  >
+  {% if notes %}
+  <div class="row">
+    {% for note in notes %}
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{note.title}}</h5>
+          <p class="card-text">{{note.content}}</p>
+          <p class="text-muted-small">
+            Created at: {{note.timestamp.strftime('%Y-%m-%d %H:%M:%S')}}
+          </p>
+          <form
+            action="{{url_for('notes.delete_note', note_id=note.id)}}"
+            method="POST"
+            style="display: inline"
+          >
+            <button class="btn btn-sm btn-dang" type="submit">
+              🗑 Delete Note
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="text-muted">
+    You Don't Have Any Notes Yet. Click "Create New Note" To Start!
+  </p>
+  {% endif %}
+</div>
+{% endblock%}
