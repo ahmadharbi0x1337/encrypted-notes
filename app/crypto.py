@@ -1,36 +1,45 @@
+"""
+Handle symmetric encryption and decryption of note content.
+Relies on a single Frenet key loaded from environment variables.
+"""
+
 from cryptography.fernet import Fernet
 import os
+from dotenv import load_dotenv
 
-KEY_FILE = "secret.key"
+# Load environment variables from .env file
+load_dotenv()
 
-def generate_key():
-    """ Generate a new Fernet Key """
-    return Fernet.generate_key()
+# Retrieve master encryption key from environment
+FERNET_KEY = os.getenv("FERNET_KEY")
 
-def save_key(key: bytes):
-    """ Save The Key To A File """
-    with open(KEY_FILE, "wb") as f:
-        f.write(key)
+if not FERNET_KEY:
+    raise ValueError("Missing FERNET_KEY in environment. Did you set it in .env?")
 
-def load_key():
-    """ Load The Key From File, or generate it if it doesn't exist """
-    if not os.path.exists(KEY_FILE):
-        key = generate_key()
-        save_key(key)
-    else:
-        with open(KEY_FILE, "rb") as f:
-            key = f.read()
-    
-    return key
+fernet = Fernet(FERNET_KEY)
 
 
 
-# Initialize Fernet Once 
+def encrypt_note_content(content: str) -> str:
+    """
+    Encrypt plain text note content using Fernet symmetric encryption.
 
-fernet = Fernet(load_key())
+    Args: 
+        content (str): The plain text content to encrypt.
 
-def encrypt_note_content(plaintext: str) -> str:
-    return fernet.encrypt(plaintext.encode()).decode()
+    Returns:
+        str: Encrypted content as a UTF-8 encoded string.
+    """
+    return fernet.encrypt(content.encode()).decode()
 
 def decrypt_note_content(ciphertext: str) -> str:
+    """
+    Decrypt encrypted note content using Fernet.
+    
+    Args:
+        ciphertext (str): Encrypted content string to decrypt.
+
+    Returns:
+        str: Decrypted plain text string.
+    """
     return fernet.decrypt(ciphertext.encode()).decode()
