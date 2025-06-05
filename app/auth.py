@@ -1,12 +1,30 @@
-from flask import Blueprint, redirect, render_template, url_for, flash, request, current_app
+"""
+User authentication routes for registration, login, and logout.
+Handles user creation with password hashing and session management.
+"""
+
+from flask import Blueprint, redirect, render_template, url_for, flash, request
 from flask_login import login_user, logout_user, login_required, current_user
 from .models import User, db
-from app import bcrypt
+from . import bcrypt
 
+# Define blueprint
 auth_bp = Blueprint('auth', __name__)
 
+
+
+@auth_bp.route('/')
+def index():
+    return redirect(url_for('auth.register'))
+    
 @auth_bp.route('/register', methods=['GET', 'POST'])
 def register():
+    """
+    Route for user registration.   
+    """
+    if current_user.is_authenticated:
+        return redirect(url_for('notes.dashboard'))
+    
     if request.method == "POST":
         username = request.form['username']
         password = request.form['password']
@@ -19,15 +37,21 @@ def register():
         new_user = User(username=username, password_hash=password_hash)
         db.session.add(new_user)
         db.session.commit()
+        
         flash("Account Created Successfully, Please Log in.")
         return redirect(url_for('auth.login'))
+    
     return render_template("register.html")
 
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
-
-    if request.method == "POST":
-        
+    """
+    Route for user login
+    """
+    if current_user.is_authenticated:
+        return redirect(url_for('notes.dashboard'))
+    
+    if request.method == "POST": 
         username = request.form['username']
         password = request.form['password']
         
@@ -45,7 +69,11 @@ def login():
 @auth_bp.route('/logout', methods=['GET', 'POST'])
 @login_required
 def logout():
+    """
+    Logs the user out and redirects to login page.
+    """
+    
     logout_user()
-    flash('Logged out Successfully')
+    flash('You have been logged out.')
     return redirect(url_for('auth.login'))
 
