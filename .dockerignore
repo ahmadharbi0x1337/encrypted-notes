@@ -1,8 +1,9 @@
-venv/
 __pycache__/
-*.pyc
-secret.key
-*.env
 .env
+*.pyc
+*.pyo
+*.pyd
+*.db
 *.sqlite3
 instance/
+.secret.key

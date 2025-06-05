@@ -7,6 +7,7 @@ from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_bcrypt import Bcrypt
+
 # Initializing Extensions Without Binding.
 db = SQLAlchemy()
 login_manager = LoginManager()
@@ -31,6 +32,7 @@ def create_app():
 
     # Creates database tables
     with app.app_context():
+        from .models import User
         db.create_all()
 
     # Register blueprints

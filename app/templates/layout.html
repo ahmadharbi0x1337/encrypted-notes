@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html id="htmlTag" lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,6 +10,15 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      crossorigin="anonymous"
+    />
+
     <!-- Cusom CSS -->
     <link
       rel="stylesheet"
@@ -19,14 +28,57 @@
     />
   </head>
   <body>
+    <!-- Navbar  -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-      <a class="navbar-brand" href="{{url_for('notes.dashboard')}}">🔐 Notes</a>
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav ms-auto">
+      <!-- Toggler for mobile menu -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarContent"
+        aria-controls="navbarContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Collapsible Content -->
+      <a
+        class="navbar-brand"
+        href="{{url_for('notes.dashboard')}}"
+        data-i18n="notes"
+        >🔐 Notes</a
+      >
+      <div
+        class="collapse navbar-collapse justify-content-center"
+        id="navbarContent"
+      >
+        <ul class="navbar-nav text-center">
           {% if current_user.is_authenticated %}
-          <li class="nav-item">
-            <a href="{{url_for('auth.logout')}}" class="nav-link">Logout</a>
+          <li class="nav-item" style="margin-left: 10px; margin-right: 10px">
+            <button id="themeToggle" class="btn btn-outline-secondary">
+              <i id="themeIcon" class="fas fa-moon"></i>
+            </button>
           </li>
+          <li
+            class="nav-item"
+            style="margin-left: 15px; margin-right: 15px; font-weight: bold"
+          >
+            <button id="lang-toggle" class="btn btn-outline-primary">
+              <i id="langIcon" class="fas fa-language"></i>
+              <span id="langLabel">عربي</span>
+            </button>
+          </li>
+          <li class="nav-item">
+            <a
+              href="{{url_for('auth.logout')}}"
+              class="nav-link"
+              data-i18n="logout"
+              >Logout</a
+            >
+          </li>
+
           {% else %}
           <li class="nav-item">
             <a href="{{url_for('auth.login')}}" class="nav-link">Login</a>
@@ -38,11 +90,27 @@
         </ul>
       </div>
     </nav>
+    <!-- Basic Flash Alerting -->
     <div class="container mt-4">
       {% with messages = get_flashed_messages() %} {% if messages %} {% for
       message in messages %}
       <div class="alert alert-warning">{{ message }}</div>
       {% endfor %} {% endif %} {% endwith %} {% block content %} {% endblock %}
     </div>
+    <!-- Footer -->
+    <footer class="custom-footer">
+      <p class="mb-1">
+        &copy; All rights reserved. Made with ☕ and ❤️ by Ahmad Alharbi.
+      </p>
+      <div>
+        <strong>Support via Crypto:</strong>
+        <code
+          >ETH / USDT (ERC20): 0x481f2c52fd68415a56cd9a9ee1864449be9731bc</code
+        >
+      </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+    <script src="{{url_for('static', filename='js/language-toggle.js')}}"></script>
   </body>
 </html>

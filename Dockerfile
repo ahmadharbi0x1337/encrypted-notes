@@ -1,12 +1,13 @@
 # Base Image
-FROM python:3.12-slim
+FROM python:3.12-slim-buster
 
 # Environment Variables
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     FLASK_APP=run.py \
-    FLASK_ENV=production
+    FLASK_ENV=production \
+    FLASJ_RUN_PORT=5000
 
 # Working Directory
 
@@ -39,4 +40,4 @@ EXPOSE 5000
 
 # Start The FLask App
 
-CMD ["flask", "run", "--host=0.0.0.0"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]

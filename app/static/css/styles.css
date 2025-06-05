@@ -8,6 +8,7 @@ body{
     font-family: 'Ubuntu Sans Mono', sans-serif;
     background-color: #fff;
     color: #212529;
+    height: 100vh;
 }
 /* Notes Container */
 .notes-container{
@@ -58,8 +59,6 @@ body{
     margin-top: 12px;
 }
 
-
-
 /* Dark Mode Styles */
 body.dark-mode {
   background-color: #121212;
@@ -94,8 +93,6 @@ body.dark-mode button#darkModeToggle {
   background-color: #ddd;
 }
 
-
-
 /* Arabic Styles */
 body.rtl {
   font-family: "Cairo", sans-serif; 
@@ -105,9 +102,6 @@ body.rtl {
 body.rtl .card {
   direction: rtl;
 }
-
-
-
 
 /* Center navbar items horizontally */
 .navbar-nav {
@@ -126,4 +120,26 @@ body.rtl .card {
 /* Smooth transition for better RTL/LTR flipping */
 html[dir="rtl"] .navbar-nav {
   direction: rtl;
+}
+
+/* Footer */
+.custom-footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 75px;
+  background-color: #222;
+  color: #ccc;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 0.9rem;
+  border-top: 1px solid #444;
+}
+
+.custom-footer code {
+  background-color: #333;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 4px;
 }

@@ -1,41 +1,53 @@
 {% extends "layout.html" %} {% block title %} My Notes {% endblock%} {% block
 content %}
 <div class="container mt-4">
-  <h2>My E_Notes</h2>
-  <div class="alert alert-info">
+  <h2 data-i18n="notes_header">My E_Notes</h2>
+  <div
+    class="alert alert-info"
+    data-i18n="auth_status"
+    data-username="{{ current_user.username }}"
+  >
     🔐 You Are Logged In As
-    <strong>{{current_user.username}}</strong>
+    <strong id="username-placeholder">{{current_user.username}}</strong>
   </div>
-  <a href="{{url_for('notes.create_note')}}" class="btn btn-sucess mb-4"
+  <a
+    href="{{url_for('notes.create_note')}}"
+    class="btnALIAS btn btn-success mb-4"
+    data-i18n="create_note"
     >➕ Create New Note</a
   >
   {% if notes %}
-  <div class="row">
+  <div class="notes-container">
     {% for note in notes %}
-    <div class="col-md-6 mb-4">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">{{note.title}}</h5>
-          <p class="card-text">{{note.content}}</p>
-          <p class="text-muted-small">
-            Created at: {{note.timestamp.strftime('%Y-%m-%d %H:%M:%S')}}
-          </p>
-          <form
-            action="{{url_for('notes.delete_note', note_id=note.id)}}"
-            method="POST"
-            style="display: inline"
-          >
-            <button class="btn btn-sm btn-dang" type="submit">
-              🗑 Delete Note
-            </button>
-          </form>
-        </div>
+    <div class="note-card">
+      <div class="note-title">{{note.title}}</div>
+      <div class="note-content">{{note.content}}</div>
+      <div class="note-timestamp mb-3">
+        {{note.timestamp.strftime('%Y-%m-%d %H:%M:%S')}}
       </div>
+      <form
+        action="{{url_for('notes.delete_note', note_id=note.id)}}"
+        method="POST"
+        style="display: inline"
+      >
+        <a
+          href="{{url_for('notes.delete_note', note_id=note.id)}}"
+          class="btn btn-danger btn-sm"
+          data-i18n="delete"
+          >Delete</a
+        >
+        <a
+          href="{{ url_for('notes.edit_note', note_id=note.id) }}"
+          class="btn btn-sm btn-warning"
+          data-i18n="edit"
+          >Edit</a
+        >
+      </form>
     </div>
     {% endfor %}
   </div>
   {% else %}
-  <p class="text-muted">
+  <p class="text-muted" data-i18n="no_notes">
     You Don't Have Any Notes Yet. Click "Create New Note" To Start!
   </p>
   {% endif %}

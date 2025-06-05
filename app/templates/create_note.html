@@ -1,10 +1,10 @@
 {% extends "layout.html" %} {% block title %} Create Note {% endblock %} {%
 block content %}
 <div class="container mt-5">
-  <h2 class="mb-4">Create New Note</h2>
+  <h2 class="mb-4" data-i18n="create_new_note">Create New Note</h2>
   <form method="POST" action="{{url_for('notes.create_note')}}">
     <div class="mb-3">
-      <label for="title" class="form-lable">Title</label>
+      <label data-i18n="title" for="title" class="form-lable">Title</label>
       <input
         type="text"
         name="title"
@@ -14,7 +14,9 @@ block content %}
       />
     </div>
     <div class="mb-3">
-      <label for="content" class="form-lable">Content</label>
+      <label data-i18n="content" for="content" class="form-lable"
+        >Content</label
+      >
       <textarea
         type="text"
         name="content"
@@ -24,8 +26,15 @@ block content %}
         id="content"
       ></textarea>
     </div>
-    <button type="submit" class="btn btn-primary mt-4">Save Note</button>
-    <a href="{{url_for('notes.dashboard')}}" class="mt-4">Cancel</a>
+    <button type="submit" class="btn btn-primary mt-4" data-i18n="save_note">
+      Save Note
+    </button>
+    <a
+      href="{{url_for('notes.dashboard')}}"
+      data-i18n="cancel"
+      class="btn btn-danger mt-4"
+      >Cancel</a
+    >
   </form>
 </div>
 {% endblock %}
