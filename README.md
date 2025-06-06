@@ -48,30 +48,55 @@ You can run the app locally with Python or deploy it via Docker.
 
 /encrypted_notes/
 ├── app/
+
 │ ├── __init__.py # Flask factory, extension setup
+
 │ ├── auth.py # Login, logout, registration logic
+
 │ ├── notes.py # Note CRUD routes
+
 │ ├── models.py # SQLAlchemy models for User & Note
+
 │ ├── crypto.py # Fernet-based encryption logic
+
 │ ├── templates/ # HTML (Jinja2) templates
+
 │ │ ├── layout.html
+
 │ │ ├── login.html
+
 │ │ ├── register.html
+
 │ │ ├── notes.html
+
 │ │ ├── create_note.html
+
 │ │ └── edit_note.html
+
 │ ├── static/
+
 │ │ ├── css/styles.css # UI/UX + dark mode
+
 │ │ ├── js/main.js # Dark mode + navbar logic
+
 │ │ ├── js/language-toggle.js # i18n toggle logic
+
 │ │ └── lang/translations.json # Arabic/English labels
+
 ├── config.py # App config (SECRET_KEY, DB URI)
+
 ├── run.py # App entry point
+
 ├── Dockerfile # Build instructions for deployment
+
 ├── requirements.txt # Python dependencies (incl. python-dotenv)
+
 ├── .env.example # Example environment vars (you now have it!)
+
 ├── README.md # ✅ Full usage and deployment instructions
+
 └── utils/
+
  └── generate_master_key.py # Creates Fernet key (optional helper)
 
 ---
