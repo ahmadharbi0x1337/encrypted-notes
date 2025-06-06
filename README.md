@@ -1,6 +1,6 @@
 # Encrypted Notes App (E_Notes)
 
-A **secure, bilingual, and self-hostable note-taking application** built for the [CS50x Final Project](https://cs50.harvard.edu/x/2024/final/), with a focus on:
+A **secure, bilingual, and self-hostable note-taking application** built for the [CS50x Final Project](https://cs50.harvard.edu/college/2025/fall/), with a focus on:
 
 - End-to-end encrypted note storage (using Fernet symmetric encryption)
 - Clean, responsive UI using Bootstrap
@@ -11,8 +11,8 @@ A **secure, bilingual, and self-hostable note-taking application** built for the
 ---
 
 ## 🌐 Live & Demo
-
-You can run the app locally with Python or deploy it via Docker.
+### You can see me demonstration of the app in the following video: [Demo]()
+### You can run the app locally with Python or self-host it via Docker. 
 
 ---
 
@@ -20,7 +20,7 @@ You can run the app locally with Python or deploy it via Docker.
 
 | Feature                   | Description                                                                 |
 | ------------------------- | --------------------------------------------------------------------------- |
-| 🛡️ End-to-End Encryption | Notes are encrypted client-side before storing in the database using Fernet |
+| 🛡️ End-to-End Encryption  | Notes are encrypted client-side before storing in the database using Fernet |
 | 🔐 Authentication         | Users can register, log in, and manage their own encrypted notes            |
 | 💡 Dark Mode              | Toggle dark/light themes using a persistent button                          |
 | 🌍 Arabic Language        | Fully translated UI with right-to-left layout                               |
@@ -47,6 +47,7 @@ You can run the app locally with Python or deploy it via Docker.
 ## 📁 Project Structure
 
 /encrypted_notes/
+
 ├── app/
 
 │ ├── __init__.py # Flask factory, extension setup
@@ -95,9 +96,9 @@ You can run the app locally with Python or deploy it via Docker.
 
 ├── README.md # ✅ Full usage and deployment instructions
 
-└── utils/
+├── utils/
 
- └── generate_master_key.py # Creates Fernet key (optional helper)
+| └── generate_master_key.py # Creates Fernet key (optional helper)
 
 ---
 
@@ -181,7 +182,7 @@ Then open: `http://localhost:5000`
 
 ## 🧑‍🎓 CS50x Final Project Submission
 
-This project was built as a final project for [CS50x](https://cs50.harvard.edu/x/2024/final/) and exceeds the required scope:
+This project was built as a final project for CS50x:
 
 - ✅ 200+ lines of original code
 - ✅ Authentication and database integration
@@ -196,7 +197,7 @@ MIT License. Feel free to fork, use, and improve it!
 
 ---
 
-## 🙏 Acknowledgements
+## 🙏 Acknowledgements - Thanks To:
 
 - Harvard's CS50x for the opportunity
-- Bootstrap, Flask, Font Awesome, and OpenAI for the guidance
+- Flask, Bootstrap, Font Awesome, JavaScript, and OpenAI for the guidance
