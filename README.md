@@ -11,7 +11,7 @@ A **secure, bilingual, and self-hostable note-taking application** built for the
 ---
 
 ## 🌐 Live & Demo
-### You can see me demonstration of the app in the following video: [Demo]()
+### You can see me demonstration of the app in the following video: [Demo](https://youtu.be/Gb7nPGLdrG8)
 ### You can run the app locally with Python or self-host it via Docker. 
 
 ---
