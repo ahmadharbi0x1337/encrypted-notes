@@ -1,3 +1,4 @@
+
 # Encrypted Notes App (E_Notes)
 
 A **secure, bilingual, and self-hostable note-taking application** built for the [CS50x Final Project](https://cs50.harvard.edu/college/2025/fall/), with a focus on:
@@ -201,3 +202,7 @@ MIT License. Feel free to fork, use, and improve it!
 
 - Harvard's CS50x for the opportunity
 - Flask, Bootstrap, Font Awesome, JavaScript, and OpenAI for the guidance
+
+## Note: The Project Was Functionl in mid of 2025, but as of 2-Sep-2025 I decided to archive it, please feel free to look around, i hold great respect to this project cause it's my first fully functional web app with Auth system. wish the best for all people and thanks for everyone helped in making cs50x and the brave youtubers who i learnt so much from.
+
+### Farewell amigos 🤞 (Peace Out).
